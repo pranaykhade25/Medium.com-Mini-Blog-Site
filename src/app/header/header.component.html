@@ -1,0 +1,32 @@
+<p>header works!</p>
+<header>
+    <div class="navbar navbar-dark bg-success shadow-sm">
+        <!-- <div class="navbar-brand align-item-center d-flex">
+            <i style="font-size: 35px;" class="fas fa-shipping-fast"></i>&nbsp;
+            <strong style="font-size: 30px;">E-cart</strong> 
+        </div> -->
+        <div class=Homecontainer>
+            <div class="topnav">
+             
+             
+              <img [src]='src'>
+          
+          
+              <a class="active" routerLink="/home"><i class="bi bi-house-door-fill"></i>Home</a>
+              <!-- <a routerLink="/about">Favourites</a> -->
+              <a routerLink="/login"><i class="bi bi-box-arrow-in-right"></i>Login</a>
+
+              <a routerLink="/blogs"><i class="bi bi-signpost-2"></i>Our Blogs</a>
+              
+              <a routerLink="/contact"><i class="bi bi-telephone-inbound-fill"></i>Contact Us</a>
+              &nbsp; &nbsp;<h2 style="margin-top: 18px;">{{date|date:'shortDate'}}</h2>&nbsp;
+              &nbsp; &nbsp;<h2 style="margin-top: 18px;">{{date|date:'shortTime'}}</h2>
+
+              <a routerLink="/plans"><i class="bi bi-currency-dollar"></i>Premium Plans</a>
+              
+        </div>
+      
+    </div>
+</div>
+</header>
+<router-outlet></router-outlet>

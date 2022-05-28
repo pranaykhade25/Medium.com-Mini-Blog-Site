@@ -1,0 +1,83 @@
+<p>login works!</p>
+
+<div class="container">
+
+    <h2>Medium!! Write of your's Mind</h2>
+    <hr>
+    {{schoolform.value|json}}
+    <hr>
+    {{uname.touched}}
+    {{uname.untouched}}
+    {{uname.dirty}}
+    {{uname.pristine}}
+    {{uname.valid}}
+    {{uname.invalid}} 
+   <hr>
+    <h3>SignUp</h3>
+  
+    <form #schoolform="ngForm" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text"
+        class="form-control"
+        placeholder="Enter Your Name"
+        name="Student"
+        [(ngModel)]="userdata.name1"
+        #uname="ngModel" required
+        [class.is-invalid]="uname.invalid && uname.touched"
+        >
+        <small class="text-danger"  [class.d-none]="uname.valid||uname.untouched">Please enter name ,it is required</small>
+         </div>
+      <div class="form-group">
+        <label for="Phone">Phone Number</label>
+        <input type="number"
+        class="form-control"
+        placeholder="Enter Your Phone Number"
+        name="Phone Number"
+        [(ngModel)]="userdata.phone1"
+        pattern="^\d{10}$"
+        #num="ngModel" required
+        [class.is-invalid]="num.invalid && num.touched"
+        >
+        <div *ngIf="num.errors &&(num.invalid||num.invalid)">
+          <div class="text-danger" *ngIf="num.errors?.['required']">
+            Phone Number is required
+          </div>
+          <div class="text-danger" *ngIf="num.errors?.['pattern']">
+            Phone Number must be 10 digit
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+      <label for="Email">Email Id</label>
+        <input type="email"
+        class="form-control"
+        placeholder="Enter Your Email"
+        name="Email ID"
+        [(ngModel)]="userdata.email1"
+        >
+      </div>
+  
+      <div class="form-group">
+        <label >Select Blog Type </label>
+        <select class="custom-select" id="inputschoolname" name="BlogType"      
+         [(ngModel)]="userdata.blogtype1"
+         #sname="ngModel"
+         [class.is-invalid]="selectValue && sname.touched"
+         (blur)="selectValidate(sname.value)" (change)="selectValidate(sname.value)"
+        >
+        <option value="default">Select Blog</option>
+        <option *ngFor="let sn of blogtypes">{{sn}}</option>
+       </select>
+       <div class="text-danger"
+       [class.d-none]="!selectValue || sname.untouched"> Select Source</div>
+      </div>
+  
+      
+  <div>
+  
+    <button type="Submit" class="btn btn-primary"
+    [disabled]="schoolform.form.invalid||selectValue"> Submit the Details</button>
+  </div>
+    </form>
+  </div>

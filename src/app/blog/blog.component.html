@@ -1,0 +1,71 @@
+
+<html>
+    <body>
+      <br>
+        <h1><marquee style="color: black; ">
+  <h1>Welcome To Medium!!</h1></marquee>
+
+</h1>
+
+<div class="container" style="background-color: inherit;">
+    
+    <h2>Welcome To Medium!!</h2>
+    <hr>
+    {{schedule.value|json}}
+    <hr>
+    <!-- {{uname.touched}}
+    {{uname.untouched}}
+    {{uname.dirty}}
+    {{uname.pristine}}
+    {{uname.valid}}
+    {{uname.invalid}}  -->
+   <hr>
+    <h3>Have look Interesting Blogs!!</h3>
+  
+    <form #schedule="ngForm" (ngSubmit)="submit()">
+      
+  
+      <div class="form-group">
+        <label >Select Blog Type </label>
+        <select class="custom-select container" id="inputstatename toggle" name="Blog by"      
+         [(ngModel)]="userdata.from"
+         #sname="ngModel"
+         [class.is-invalid]="selectValue && sname.touched"
+         (blur)="selectValidate(sname.value)" (change)="selectValidate(sname.value)"
+        >
+        <option value="default">Select Blog Type</option>
+        <option *ngFor="let sn of blogger">{{sn}}</option>
+       </select>
+       {{sname.value}}
+       <div class="text-danger"
+       [class.d-none]="!selectValue || sname.untouched"> Select Blogger</div>
+      </div>
+
+  <div>
+   
+
+  </div>
+    </form>
+    
+    <div *ngIf="userdata.from=='Pranay'">
+            <tr *ngFor="let blogss of Pranay;index as i">
+
+                <p>{{blogger.Blog}} </p>
+               
+    </div>
+    <!-- pune Ends -->
+    <div *ngIf="userdata.from=='Prathamesh'">
+      <p>
+         
+          <tr *ngFor="let blogss of Prathamesh;index as i">
+           
+              
+              <p>{{blogss.Blog}} </p>
+              
+  </div>
+  <!-- pune Ends -->
+
+  </div>
+
+
+</body></html>
